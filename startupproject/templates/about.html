@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
-</head>
-<body>
-    <h1>"This is about page. "</h1> 
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+    About
+{% endblock title %}
+
+{% block About %}
+active
+{% endblock About  %}
+
+
+
+{% block body %}
+  <div class="container">
+    <h1>Welcome to About Page</h1>
+  </div>
+{% endblock body %}

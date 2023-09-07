@@ -8,9 +8,10 @@
   
       <div class="col-md-4">
         <h1 class="text-center">Signup</h1>
+        {% include "messages.html" %}
         <form>
         <br/>   
-        <form action="" method="post">
+        <form action="/auth/signup/" method="post">{% csrf_token %}
           <label for="name">Name</label>
           <div class="form-group">
             <input

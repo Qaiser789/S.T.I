@@ -38,10 +38,44 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+     # add his below sites also
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'startupapp',
-    'authapp'
+    'authapp',
+
+    # add bellow apps to login through google account
+    
+    'allauth',   
+    'allauth.account',  
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
+    # for ckeditor
+    #'ckeditor',
 ]
+
+# add below lines for backend
+
+AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', 'allauth.account.auth_backends.AuthenticationBackend', )
+
+SITE_ID = 2
+LOGIN_REDIRECT_URL = '/'
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,3 +167,4 @@ STATICFILES_DIRS = [
 MESSAGE_TAGS={
     messages.ERROR:'danger'
 }
+

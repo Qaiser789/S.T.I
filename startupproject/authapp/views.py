@@ -11,9 +11,7 @@ from authapp.utils import TokenGenerator,generate_token
 from django.utils.encoding import force_bytes,force_text,DjangoUnicodeDecodeError
 from django.core.mail import EmailMessage
 from django.conf import settings
-
 # Create your views here.
-
 def signup(request):
     flag=0
     if request.method=="POST":
@@ -210,4 +208,3 @@ class SetNewPasswordView(View):
             except DjangoUnicodeDecodeError as identifier:
                 messages.error(request,"Something Went Wrong")
                 return render(request,'set-new-password.html',context)
-

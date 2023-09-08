@@ -1,13 +1,10 @@
 from django.shortcuts import render,redirect
-from authapp.models import contact
+from authapp.models import Contact
 from django.contrib import messages
 from startupapp.models import Courses,Register,Payments,Attendace
-
 # Create your views here.
-
 def index(request):
     return render(request,"index.html")
-
 
 def about(request):
     return render(request,"about.html")
@@ -19,7 +16,7 @@ def contact(request):
         email=request.POST.get('email')
         phoneNo=request.POST.get('num')
         desc=request.POST.get('desc')
-        query=contact(name=name,email=email,phoneNumber=phoneNo,description=desc)
+        query=Contact(name=name,email=email,phoneNumber=phoneNo,description=desc)
         query.save()
         messages.success(request,"Thanks for Contacting us we will get back you soon...")
         return render(request,"contact.html")
@@ -193,4 +190,3 @@ def search(request):
         messages.warning(request,"No Search Results")
     params={'allPosts':allPosts,'query':query}
     return render(request,"search.html",params)
-

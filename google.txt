@@ -1,38 +1,38 @@
 LOGIN THROUGH GOOGLE ACCOUNTS
 
-STEP1:
+STEP 1:
 
 CREATE PROJECT:
 
 *django-admin startproject myproject
 ------------------------------------------------------------------
-STEP2:
+STEP 2:
 
 CREATE APP
 *cd myproject
 
 *python manage.py startapp myapp
 ------------------------------------------------------------------
-STEP3:
+STEP 3:
 
 RUN THE SERVER
 
 *python manage.py runserver
 -------------------------------------------------------------------
-STEP4:
+STEP 4:
 
 RUN MIGRATTIONS
 
 *python manage.py migrate
 
 --------------------------------------------------------------------
-STEP5:
+STEP 5:
 
 INSTALL ALLAUTH
 
 *pip install django-allauth
 -------------------------------------------------------------------
-STEP6:
+STEP 6:
 
  OPEN SETTINGS.PY IN MYPROJECT FOLDER
 ___________________________________________
@@ -76,7 +76,22 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 ______________________________________________________________________
 
-STEP7:
+Step 7:
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'allauth.account.middleware.AccountMiddleware',   ### Add this line to middleware its necessary for setup
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+-----------------------------------------------------------------------------------------------------
+
+STEP 8:
 
 CREATE TEMPLATE CREATE SOCIAL_APP FOLDER AND ADD INDEX.HTML
 
@@ -119,7 +134,7 @@ LOGIN WITH GOOGLE ACCOUNT
 
 
 ______________________________________________________________
-STEP8:
+STEP 9:
 
 #ADD PATH IN URLS.PY
 
@@ -135,7 +150,7 @@ path('', TemplateView.as_view(template_name="social_app/index.html")),
 
 _________________________________________________________________
 
-STEP9:
+STEP 10:
 
 #RUN MIGRATIONS
 
@@ -144,7 +159,7 @@ python manage.py makemigrations
 python manage.py migrate
 
 _________________________________________________________________
-STEP10:
+STEP 11:
 
 CREATE API CONSOLE WATCH VIDEO CAREFULLY
 
@@ -164,13 +179,13 @@ Authorized redirect URL -> http://127.0.0.1:8000/accounts/google/login/callback/
 
 
 _________________________________________________________________
-STEP11:
+STEP 12:
 #CREATE SUPERUSER TO VIEW ADMIN PANEL
 
 python manage.py createsuperuser
 
 ____________________________________________________________________
-STEP12:
+STEP 13:
 #Add social applications
 
 Provider: Google
@@ -182,7 +197,7 @@ Secret key:
 _____________________________________________________
 
 
-STEP13:
+STEP 14:
 #ADD SITEID ITS UNIQUE TO EACH CLIENTID
 
 #USING TERMINAL ENTER THIS CMD
@@ -197,7 +212,7 @@ sites.save()
 print(sites.id)
 
 ______________________________________________________
-STEP14:
+STEP 15:
 
 SET UP THE PATH IN ADMIN
 

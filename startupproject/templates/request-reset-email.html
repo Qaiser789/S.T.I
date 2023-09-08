@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-    Login    
+    Request Reset Password    
 {% endblock title %} 
 {% block body %}
 
@@ -9,9 +9,9 @@
       <div class="col-md-4"></div>
   
       <div class="col-md-4">
-        <h1 class="text-center text-success">login</h1>
+        <h1 class="text-center text-success">Request for reset password</h1>
         {% include "messages.html" %}
-        <form action="/auth/login/" method="post">{% csrf_token %}
+        <form action="/auth/request-reset-email/" method="post">{% csrf_token %}
           <br />
          
           <label for="email">Email</label>
@@ -25,25 +25,12 @@
               required
             />
           </div>
-          <label for="pass1">Password </label>
-          <div class="form-group">
-            
-            <input
-              type="password"
-              class="form-control p-2 mb-3"
-              id="pass1"
-              name="pass1"
-              placeholder="Enter Password"
-              required
-              
-            />
-    
-          </div>
+          
      
         
           <br />
           <div class="d-grid gap-2 mb-3">
-          <button type="submit" class="btn btn-success get-started-btn">Login</button>
+          <button type="submit" class="btn btn-success get-started-btn">Reset</button>
           </div>
   
           <br />

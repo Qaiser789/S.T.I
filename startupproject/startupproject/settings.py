@@ -14,6 +14,10 @@ from pathlib import Path
 import os
 from django.contrib import messages
 
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -52,7 +56,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     # for ckeditor
-    #'ckeditor',
+    'ckeditor',
 ]
 
 # add below lines for backend
@@ -150,6 +154,17 @@ USE_I18N = True
 USE_TZ = True
 
 
+EMAIL_HOST='smtpout.secureserver.net'
+# EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER=''
+EMAIL_HOST_PASSWORD=''
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
@@ -168,3 +183,5 @@ MESSAGE_TAGS={
     messages.ERROR:'danger'
 }
 
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")

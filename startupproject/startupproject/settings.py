@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
+   
+
     # for ckeditor
     'ckeditor',
 ]
@@ -62,6 +64,7 @@ INSTALLED_APPS = [
 # add below lines for backend
 
 AUTHENTICATION_BACKENDS = ( 'django.contrib.auth.backends.ModelBackend', 'allauth.account.auth_backends.AuthenticationBackend', )
+
 
 SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
@@ -89,7 +92,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
+
+
+
 
 ROOT_URLCONF = 'startupproject.urls'
 
